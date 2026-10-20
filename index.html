@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0b0c">
+  <title>HARLEY DAVIDSON | Born to Ride</title>
+  <meta name="description" content="A personal website about me and my love for Harley-Davidson motorcycles.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="logo.gif" type="image/gif">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       EDIT ME: search this file for "YOUR NAME" and the lines marked
+       "EDIT" to replace the placeholders with your own details.
+       Keep logo.gif and profile.jpg in the same folder as this file
+       ============================================================ -->
+
+  <noscript><p style="padding:2rem;color:#fff">This page needs JavaScript for its interactive parts.</p></noscript>
+
+  <!-- Shared bike silhouette (original drawing) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="bike-sil" viewBox="0 0 600 300">
+      <g fill="none" stroke="currentColor" stroke-width="12">
+        <circle cx="130" cy="210" r="64"/><circle cx="470" cy="210" r="64"/>
+      </g>
+      <g fill="currentColor">
+        <path d="M170 140 Q215 118 275 132 L405 125 Q400 105 365 100 Q300 92 275 128 Z"/>
+        <rect x="285" y="165" width="75" height="62" rx="10"/>
+        <path d="M130 210 L200 160 L300 175 L340 210 Z" opacity=".9"/>
+      </g>
+      <g fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round">
+        <line x1="470" y1="210" x2="425" y2="105"/>
+        <path d="M425 105 L420 82 Q405 72 385 80"/>
+        <path d="M300 225 L120 228"/>
+      </g>
+    </symbol>
+  </svg>
+
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <div class="glow" id="glow" aria-hidden="true"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <header class="nav" id="nav">
+    <a class="brand" href="#home"><img class="logo" src="logo.gif" alt="Harley-Davidson logo" width="36" height="48"><span>HARLEY-DAVIDSON</span></a>
+    <nav aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#rides">Rides</a>
+      <a href="#story">Story</a>
+      <a href="#interests">Interests</a>
+      <a href="#skills">Skills</a>
+      <a href="#ride">Test Ride</a>
+      <a href="#quiz">Quiz</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===================== HERO ===================== -->
+    <section id="home" class="hero">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <p class="eyebrow"><span class="dot"></span> Harley-Davidson fan &bull; Rider in the making</p>
+          <h1>BORN TO <span class="fire">RIDE</span></h1>
+          <p class="hello">Hi, I'm <strong>HARLEY DAVIDSON</strong> <span class="sep">/</span> <span id="typed"></span><span class="caret" aria-hidden="true"></span></p>
+          <div class="cta">
+            <button id="revBtn" class="btn primary" type="button">Hold to REV</button>
+            <a href="#rides" class="btn ghost">Build my dream ride &rarr;</a>
+          </div>
+          <p class="hint">Tip: hold the button or the <kbd>R</kbd> key. Turn your volume up.</p>
+        </div>
+        <div class="gauge-wrap">
+          <div id="gauge" role="img" aria-label="Animated motorcycle tachometer"></div>
+        </div>
+      </div>
+      <div class="road" aria-hidden="true">
+        <svg class="rider"><use href="#bike-sil"/></svg>
+      </div>
+      <a class="scroll-cue" href="#about" aria-label="Scroll to About">scroll <span>&darr;</span></a>
+    </section>
+
+    <!-- ===================== ABOUT ===================== -->
+    <section id="about" class="section">
+      <div class="wrap about-grid">
+        <figure class="photo-card reveal">
+          <!-- Profile picture: the riding-bike image (profile.jpg) -->
+          <img id="photo" src="profile.jpg" alt="Cartoon rider cruising down a desert highway on a chopper" width="500" height="375">
+          <span class="shine" aria-hidden="true"></span>
+          <span class="tag tag-tl" aria-hidden="true">Rider No. 01</span>
+          <span class="tag tag-tr" aria-hidden="true">Road King<br>in training</span>
+          <span class="rpm-ring" aria-hidden="true"></span>
+          <figcaption class="plate">HARLEY DAVIDSON</figcaption>
+        </figure>
+        <div class="reveal">
+          <p class="kicker">01 / The Rider</p>
+          <h2>Hi, I'm HARLEY DAVIDSON.</h2>
+          <!-- EDIT: write your own short bio -->
+          <p class="lead">I'm a student who loves anything with two wheels and a V-twin heartbeat. Someday I want to ride a Harley-Davidson down an open highway with nothing but the sound of the engine and the road ahead.</p>
+          <ul class="facts">
+            <!-- EDIT these facts -->
+            <li><span>Age</span> 24</li>
+            <li><span>From</span> Cebu City, Philippines</li>
+            <li><span>Studying</span> Bachelor of Science in Information Technology / 3rd Year</li>
+            <li><span>Dream bike</span> Road King</li>
+          </ul>
+          <div class="counters">
+            <div><b data-count="12">0</b><small>Dream rides saved</small></div>
+            <div><b data-count="2500">0</b><small>Hours of bike videos</small></div>
+            <div><b data-count="1903">0</b><small>The year it all began</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== BUILDER ===================== -->
+    <section id="rides" class="section alt">
+      <div class="wrap">
+        <p class="kicker reveal">02 / The Garage</p>
+        <h2 class="reveal">Build my dream ride</h2>
+        <p class="lead reveal">Pick a model, pick a paint. The ratings are my own opinions, not official specs.</p>
+
+        <div class="builder reveal">
+          <div class="stage">
+            <svg id="dreamBike" class="bike" data-model="roadking" viewBox="0 0 600 300" role="img" aria-label="Illustration of the selected cruiser motorcycle in the chosen paint color">
+              <ellipse cx="300" cy="278" rx="250" ry="10" class="shadow"/>
+              <g class="body">
+                <g class="wheel" style="transform-origin:130px 210px"><circle cx="130" cy="210" r="68" class="tire"/><circle cx="130" cy="210" r="65" class="tire-fat opt m-rearfat"/><circle cx="130" cy="210" r="52" class="rim"/><g class="spokes"><line x1="130" y1="158" x2="130" y2="262"/><line x1="78" y1="210" x2="182" y2="210"/><line x1="93" y1="173" x2="167" y2="247"/><line x1="167" y1="173" x2="93" y2="247"/></g><g class="opt m-disc"><circle cx="130" cy="210" r="50" class="disc"/><line x1="130" y1="172" x2="130" y2="192" class="notch"/></g><circle cx="130" cy="210" r="8" class="hub"/></g>
+                <g class="wheel" style="transform-origin:470px 210px"><circle cx="470" cy="210" r="68" class="tire"/><circle cx="470" cy="210" r="52" class="rim"/><g class="spokes"><line x1="470" y1="158" x2="470" y2="262"/><line x1="418" y1="210" x2="522" y2="210"/><line x1="433" y1="173" x2="507" y2="247"/><line x1="507" y1="173" x2="433" y2="247"/></g><g class="opt m-disc"><circle cx="470" cy="210" r="50" class="disc"/><line x1="470" y1="172" x2="470" y2="192" class="notch"/></g><circle cx="470" cy="210" r="8" class="hub"/></g>
+                <path d="M58 200 A74 74 0 0 1 195 178" class="fender"/>
+                <path d="M404 186 A76 76 0 0 1 536 186" class="fender opt m-ffender"/>
+                <path d="M130 210 L200 160 L300 175 L335 205 M300 175 L405 125" class="frame"/>
+                <rect x="285" y="168" width="72" height="58" rx="8" class="engine"/>
+                <rect x="287" y="146" width="22" height="42" rx="4" class="engine" transform="rotate(-25 298 188)"/>
+                <rect x="333" y="146" width="22" height="42" rx="4" class="engine" transform="rotate(25 344 188)"/>
+                <path d="M300 228 L180 234 L120 226" class="exhaust opt m-big"/>
+                <path d="M305 228 L235 232 L205 226" class="exhaust opt m-small"/>
+                <rect x="150" y="150" width="108" height="46" rx="16" class="paintfill opt m-bags"/>
+                <path d="M170 140 Q215 118 275 132 L270 150 Q215 142 175 158 Z" class="seat"/>
+                <path d="M275 128 Q300 92 365 100 Q400 105 405 125 Q350 142 275 150 Z" class="paintfill opt m-big"/>
+                <path d="M285 130 Q312 106 352 108 Q382 112 384 126 Q336 140 285 144 Z" class="paintfill opt m-small"/>
+                <line x1="470" y1="210" x2="425" y2="105" class="fork"/>
+                <path d="M425 105 L420 82 Q405 72 385 80" class="bars"/>
+                <path d="M398 118 Q402 74 440 66 Q476 64 478 102 L470 138 Q440 148 406 140 Z" class="paintfill opt m-fair"/>
+                <path d="M412 112 Q416 84 440 80 Q462 80 464 104 Q440 112 412 112 Z" class="glass opt m-fair"/>
+                <path d="M428 100 Q438 52 424 22 L452 24 Q464 66 454 104 Z" class="glass opt m-wind"/>
+                <path d="M410 112 Q420 90 436 96 L428 118 Z" class="glass opt m-small"/>
+                <circle cx="447" cy="128" r="14" class="light"/>
+                <circle cx="418" cy="152" r="7" class="lamp opt m-lamps"/><circle cx="468" cy="152" r="7" class="lamp opt m-lamps"/>
+              </g>
+            </svg>
+            <button class="btn ghost small" id="spinBtn" type="button">Spin the wheels</button>
+          </div>
+
+          <div class="panel">
+            <div class="tabs" role="tablist" aria-label="Choose a model" id="tabs"></div>
+            <div class="info" id="bikeInfo" aria-live="polite">
+              <p class="type" id="bType"></p>
+              <h3 id="bName"></h3>
+              <p id="bDesc"></p>
+              <div class="bars-list" id="bStats"></div>
+              <p class="verdict" id="bVerdict"></p>
+            </div>
+            <div class="paint">
+              <span>Paint</span>
+              <div id="swatches" role="radiogroup" aria-label="Paint color"></div>
+              <em id="paintName"></em>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TIMELINE ===================== -->
+    <section id="story" class="section">
+      <div class="wrap">
+        <p class="kicker reveal">03 / The Legend</p>
+        <h2 class="reveal">120+ years of thunder</h2>
+        <p class="lead reveal">The milestones that made me fall in love with the brand.</p>
+        <ol class="timeline">
+          <li class="reveal"><time>1903</time><div><h3>A shed in Milwaukee</h3><p>William Harley and Arthur Davidson build their first motorcycle in a small wooden shed.</p></div></li>
+          <li class="reveal"><time>1909</time><div><h3>The first V-twin</h3><p>The V-twin layout arrives. That V-twin rumble is still the soul of the brand.</p></div></li>
+          <li class="reveal"><time>1936</time><div><h3>The Knucklehead</h3><p>The EL model brings an overhead-valve engine and a design that became an icon.</p></div></li>
+          <li class="reveal"><time>1957</time><div><h3>Enter the Sportster</h3><p>A lighter, quicker bike that gave riders a sportier way to cruise.</p></div></li>
+          <li class="reveal"><time>1965</time><div><h3>Electra Glide</h3><p>Electric start makes long-distance touring easier and more comfortable.</p></div></li>
+          <li class="reveal"><time>1984</time><div><h3>The Evolution engine</h3><p>A big step forward in reliability, helping the brand win over a new generation.</p></div></li>
+          <li class="reveal"><time>2017</time><div><h3>Milwaukee-Eight</h3><p>A modern engine for touring and Softail models, still with that V-twin character.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== INTERESTS ===================== -->
+    <section id="interests" class="section alt">
+      <div class="wrap">
+        <p class="kicker reveal">04 / Off the Bike</p>
+        <h2 class="reveal">Hobbies &amp; interests</h2>
+        <p class="lead reveal">Tap a card to flip it.</p>
+        <div class="cards">
+          <!-- EDIT: change titles/text to your real hobbies -->
+          <button class="flip reveal" type="button" aria-label="Flip card: Riding and road trips">
+            <span class="face front"><i>01</i><b>Riding &amp; road trips</b></span>
+            <span class="face back">Nothing beats a long road and a full tank. I'm saving up for my first big trip.</span>
+          </button>
+          <button class="flip reveal" type="button" aria-label="Flip card: Tinkering with machines">
+            <span class="face front"><i>02</i><b>Tinkering</b></span>
+            <span class="face back">Taking things apart to see how they work. Engines are the best puzzles.</span>
+          </button>
+          <button class="flip reveal" type="button" aria-label="Flip card: Classic rock music">
+            <span class="face front"><i>03</i><b>Classic rock</b></span>
+            <span class="face back">The perfect soundtrack when you're imagining the open road.</span>
+          </button>
+          <button class="flip reveal" type="button" aria-label="Flip card: Photography">
+            <span class="face front"><i>04</i><b>Photography</b></span>
+            <span class="face back">Chrome, sunsets and long shadows. Bikes are very photogenic.</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SKILLS ===================== -->
+    <section id="skills" class="section">
+      <div class="wrap">
+        <p class="kicker reveal">05 / Under the Hood</p>
+        <h2 class="reveal">My skills</h2>
+        <p class="lead reveal">The four things I bring to every ride.</p>
+        <div class="skill-cards">
+          <!-- EDIT the short descriptions if you want to describe them in your own words -->
+          <article class="skill-card reveal">
+            <span class="num">01</span>
+            <h3>AI Technical</h3>
+            <p>Using AI tools and good prompts to learn, build and solve problems faster.</p>
+          </article>
+          <article class="skill-card reveal">
+            <span class="num">02</span>
+            <h3>Web Development</h3>
+            <p>Building responsive, interactive websites with HTML, CSS and JavaScript, like this one.</p>
+          </article>
+          <article class="skill-card reveal">
+            <span class="num">03</span>
+            <h3>UI/UX Design</h3>
+            <p>Designing clear, friendly interfaces that people enjoy using, guided by HCI principles.</p>
+          </article>
+          <article class="skill-card reveal">
+            <span class="num">04</span>
+            <h3>Microsoft Technical</h3>
+            <p>Working confidently with Microsoft apps and tools for school and projects.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TEST RIDE (GAME) ===================== -->
+    <section id="ride" class="section alt">
+      <div class="wrap">
+        <p class="kicker reveal">06 / Test Ride</p>
+        <h2 class="reveal">Dodge the road</h2>
+        <p class="lead reveal">Press <kbd>Space</kbd> or tap the screen to jump. Hit an obstacle and it's game over. Beat your best distance!</p>
+        <div class="game reveal">
+          <canvas id="gameCanvas" width="1200" height="400" role="img" aria-label="Mini game: a motorcycle jumps over cones, rocks and barriers. Press Space or tap to jump."></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== QUIZ ===================== -->
+    <section id="quiz" class="section">
+      <div class="wrap narrow">
+        <p class="kicker reveal">07 / Your Turn</p>
+        <h2 class="reveal">Which rider are you?</h2>
+        <p class="lead reveal">Three quick questions. Find your Harley personality.</p>
+        <div class="quiz reveal" id="quizBox" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section id="contact" class="section contact">
+      <div class="wrap narrow center">
+        <p class="kicker reveal">08 / Kickstand Down</p>
+        <h2 class="reveal">Let's ride.</h2>
+        <p class="lead reveal">Thanks for stopping by my garage. Say hello!</p>
+        <div class="links reveal">
+          <!-- Contact links -->
+          <a class="btn primary" href="https://mail.google.com/mail/?view=cm&fs=1&to=hdpanis@gmail.com&su=Hello%20from%20your%20website" target="_blank" rel="noopener">Email me</a>
+          <a class="btn ghost" href="https://www.facebook.com/profile.php?id=100007586267008" target="_blank" rel="noopener">Facebook</a>
+          <a class="btn ghost" href="https://github.com/HarleyDavidsonPanis-UCM" target="_blank" rel="noopener">GitHub</a>
+        </div>
+        <p class="egg-hint reveal">Psst... try typing <kbd>h</kbd><kbd>o</kbd><kbd>g</kbd> on your keyboard.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> HARLEY-DAVIDSON. A fan-made school project. Not affiliated with or endorsed by Harley-Davidson. All trademarks belong to their owners.</p>
+  </footer>
+
+  <!-- Easter egg rider -->
+  <svg class="egg-rider" id="eggRider" aria-hidden="true"><use href="#bike-sil"/></svg>
+
+  <script src="script.js"></script>
+</body>
+</html>
