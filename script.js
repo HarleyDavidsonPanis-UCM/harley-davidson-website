@@ -6,7 +6,6 @@
   const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- Toast ---------- */
   function toast(msg) {
     const t = $('#toast');
     t.textContent = msg;
@@ -15,7 +14,6 @@
     toast.id = setTimeout(() => t.classList.remove('show'), 2600);
   }
 
-  /* ---------- Photo fallback (shows a silhouette if profile.jpg is missing) ---------- */
   const photo = $('#photo');
   const PLACEHOLDER = 'data:image/svg+xml;utf8,' + encodeURIComponent(
     '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 560"><rect width="480" height="560" fill="#1a1a1d"/>' +
@@ -25,10 +23,8 @@
   photo.addEventListener('error', useFallback);
   if (photo.complete && photo.naturalWidth === 0) useFallback();
 
-  /* ---------- Footer year ---------- */
   $('#year').textContent = new Date().getFullYear();
 
-  /* ---------- Scroll progress + active nav link ---------- */
   const progress = $('#progress');
   addEventListener('scroll', () => {
     const h = document.documentElement.scrollHeight - innerHeight;
@@ -45,7 +41,7 @@
   }, { rootMargin: '-45% 0px -50% 0px' });
   $$('main section[id]').forEach(s => sectionObs.observe(s));
 
-  /* ---------- Cursor glow (mouse only) ---------- */
+  /* CURSOR */
   if (matchMedia('(pointer: fine)').matches && !reduceMotion) {
     const glow = $('#glow');
     addEventListener('mousemove', e => {
@@ -54,7 +50,6 @@
     }, { passive: true });
   }
 
-  /* ---------- Reveal on scroll (+ counters, skill bars) ---------- */
   function countUp(el) {
     const end = +el.dataset.count, dur = 1600, t0 = performance.now();
     (function step(t) {
@@ -75,7 +70,7 @@
   }, { threshold: 0.15 });
   $$('.reveal').forEach(el => revealObs.observe(el));
 
-  /* ---------- Typing effect ---------- */
+  /* TYPING EFFECT */
   const typed = $('#typed');
   const phrases = [
     'future Harley rider',
@@ -97,9 +92,7 @@
     })();
   }
 
-  /* ======================================================
-     TACHOMETER + ENGINE SOUND
-     ====================================================== */
+  /*ENGINE SOUND*/
   const MAX_RPM = 8000;
   const NS = 'http://www.w3.org/2000/svg';
   const gaugeEl = $('#gauge');
@@ -146,7 +139,6 @@
   make('line', { x1: 134, y1: 150, x2: 252, y2: 150, class: 'g-needle' }, needle);
   make('circle', { cx: 150, cy: 150, r: 11, class: 'g-cap' }, svg);
 
-  /* --- Audio (Web Audio synth: no files needed) --- */
   let actx = null, osc1, osc2, filt, amp, lfo, lfoGain, master;
   let soundOn = true, audioActive = false, silenceTimer = 0;
 
@@ -180,7 +172,6 @@
     master.gain.setTargetAtTime(vol, t, 0.08);
   }
 
-  /* --- Gauge physics --- */
   let rpm = 0, target = 0, revving = false, revStart = 0;
   const hero = $('#home');
   const revBtn = $('#revBtn');
@@ -200,7 +191,6 @@
   }
   requestAnimationFrame(frame);
 
-  // Intro: sweep to redline, then settle to idle (immediate "wow" in first 2 seconds)
   setTimeout(() => { target = 8000; }, 500);
   setTimeout(() => { target = 900; }, 1700);
 
@@ -214,7 +204,7 @@
   }
   function stopRev() {
     if (!revving) return;
-    const wait = Math.max(0, 600 - (performance.now() - revStart));   // short taps still give a satisfying burst
+    const wait = Math.max(0, 600 - (performance.now() - revStart));  
     setTimeout(() => {
       revving = false; target = 900;
       revBtn.classList.remove('held');
@@ -233,9 +223,7 @@
   addEventListener('blur', stopRev);
 
 
-  /* ======================================================
-     BIKE BUILDER
-     ====================================================== */
+  /*BIKE BUILDER */
   const models = [
     { key: 'roadking', name: 'Road King', type: 'Touring / Classic cruiser',
       desc: 'Retro styling, a big windshield and the kind of comfort made for all-day highway rides.',
@@ -321,14 +309,10 @@
     e.currentTarget.textContent = on ? 'Stop the wheels' : 'Spin the wheels';
   });
 
-  /* ======================================================
-     FLIP CARDS
-     ====================================================== */
+  /* FLIP CARDS*/
   $$('.flip').forEach(c => c.addEventListener('click', () => c.classList.toggle('flipped')));
 
-  /* ======================================================
-     QUIZ
-     ====================================================== */
+  /* QUIZ */
   const questions = [
     { q: 'Your perfect Saturday morning?', a: [
       ['Sunrise coastal cruise with no destination', 'cruiser'],
@@ -382,9 +366,7 @@
   renderQuiz();
 
 
-  /* ======================================================
-     TEST RIDE MINI-GAME (canvas)
-     ====================================================== */
+  /* GAME */
   (function () {
     const cv = $('#gameCanvas');
     if (!cv) return;
@@ -567,9 +549,7 @@
     });
   })();
 
-  /* ======================================================
-     EASTER EGG: type "hog"
-     ====================================================== */
+  /* type hog */
   let buf = '';
   addEventListener('keydown', e => {
     if (e.key.length !== 1) return;
